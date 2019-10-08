@@ -192,12 +192,33 @@ public class StageResultsTest {
     @Test
     public void testCalculateAverageSoFar() {
         System.out.println("calculateAverageSoFar");
-        StageResults instance = new StageResults();
-        double expResult = 0.0;
-        double result = instance.calculateAverageSoFar();
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        // Test with no credits and no marks
+        assertEquals("empty", 0.0, empty.calculateAverageSoFar(), 0.0);
+        // Test with 120 credits all at 50%
+        assertEquals("full @ 50%", 50.0, full.calculateAverageSoFar(), 0.0); 
+        // Test with 120 credits all at 100%
+        full.resetValues();
+        full.addModuleMark(120, 100.0); 
+        assertEquals("full @ 100%", 100.0, full.calculateAverageSoFar(), 0.0);
+        // Test with 120 credits all at 43.92%
+        full.resetValues();
+        full.addModuleMark(120, 43.92);
+        assertEquals("full @ 43.92%", 43.92, full.calculateAverageSoFar(), 0.0);
+        full.resetValues();
+        full.addModuleMark(120, 50.0);
+        // Test with 60 credits all at 50%
+        assertEquals("half full @ 50%", 50, full.calculateAverageSoFar(), 0.0);
+        // Test with 60 credits all at 100%
+        halfFull.resetValues();
+        halfFull.addModuleMark(60, 100.0);
+        assertEquals("half full @ 100%", 100, halfFull.calculateAverageSoFar(), 0.0);
+        // Test with 60 credits all at 64.77%
+        halfFull.resetValues();
+        halfFull.addModuleMark(60, 64.77);
+        assertEquals("half full @ 64.77%", 64.77, halfFull.calculateAverageSoFar(), 0.0);
+        halfFull.resetValues();
+        halfFull.addModuleMark(60, 50.0);
+                
     }
 
     /**
