@@ -152,13 +152,38 @@ public class StageResultsTest {
      */
     @Test
     public void testAddModuleMark() {
-        System.out.println("addModuleMark");
-        int credits = 0;
-        double mark = 0.0;
-        StageResults instance = new StageResults();
-        instance.addModuleMark(credits, mark);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("Testing addModuleMark");
+        
+        empty.addModuleMark(10, 10);
+        
+        int expCreditResult = 10;
+        double expMarkResult = 10;
+        
+        assertEquals("credits", expCreditResult, empty.getTotalCredits());
+        assertEquals("marks", expMarkResult, empty.getTotalMarks(), 0.0);
+        
+        empty = new StageResults();
+        
+        empty.addModuleMark(20, 20);
+        
+        expCreditResult = 20;
+        expMarkResult = 40;
+        
+        assertEquals("credits", expCreditResult, empty.getTotalCredits());
+        assertEquals("marks", expMarkResult, empty.getTotalMarks(), 0.0);
+        
+        empty = new StageResults();
+        
+        
+        empty.addModuleMark(40, 40);
+        
+        expCreditResult = 40;
+        expMarkResult = 160;
+        
+        assertEquals("credits", expCreditResult, empty.getTotalCredits());
+        assertEquals("marks", expMarkResult, empty.getTotalMarks(), 0.0);
+        
+        empty = new StageResults();
     }
 
     /**
