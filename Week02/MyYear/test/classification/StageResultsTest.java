@@ -115,12 +115,14 @@ public class StageResultsTest {
     @Test
     public void testIsComplete() {
         System.out.println("isComplete");
-        StageResults instance = new StageResults();
-        boolean expResult = false;
-        boolean result = instance.isComplete();
-        assertEquals(expResult, result);
+        //StageResults instance = new StageResults();
+        //boolean expResult = false;
+        //boolean result = instance.isComplete();
+        //assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertFalse("empty object", empty.isComplete());
+        assertTrue("full object", full.isComplete());
+        assertFalse("half full object", halfFull.isComplete());
     }
 
     /**
@@ -128,11 +130,21 @@ public class StageResultsTest {
      */
     @Test
     public void testResetValues() {
-        System.out.println("resetValues");
-        StageResults instance = new StageResults();
-        instance.resetValues();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("Testing resetValues");
+
+        // Set the state of the 'full' object to zeroes
+        full.resetValues();
+
+        // Set expected results
+        int expIntResult = 0;
+        double expDoubleResult = 0.0;
+
+        // Now check each attribute to test that the reset has worked
+        assertEquals("credits", expIntResult, full.getTotalCredits());
+        assertEquals("total", expDoubleResult, full.getTotalMarks(), 0.0);
+
+        // Put the 'full' object back to its original state
+        full.addModuleMark(120, 50.0);
     }
 
     /**
