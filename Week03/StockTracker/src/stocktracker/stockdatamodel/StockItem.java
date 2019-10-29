@@ -16,7 +16,23 @@ public class StockItem
     protected Integer quantityInStock = 0;
     protected Double sellingPrice = 1000000.00;
     protected Double costPrice = 1000000.00;
-
+    
+    public StockItem()
+    {
+        
+    }
+    
+    public StockItem(String name)
+    {
+        this.name = name;
+    }
+    
+    public StockItem(String name, Integer qty)
+    {
+        this.name = name;
+        this.quantityInStock = qty;
+    }
+    
     public String getName() 
     {
         return name;
