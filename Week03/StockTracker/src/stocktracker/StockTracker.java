@@ -16,22 +16,38 @@ public class StockTracker {
      */
     public static void main(String[] args) 
     {
-        // Create a Physical Stock Item object  and a Service Stock Item object
-        PhysicalStockItem objPhysicalItem =
-                new PhysicalStockItem("Snuff: A Diskworld book by Terry Pratchett", 100);
-        ServiceStockItem objVirtualItem = 
-                new ServiceStockItem ("Wintersmith: A Diskworld book by Terry Pratchett");
-        //Test the behaviour of the Physical Stock Item
-        String strMessage = objPhysicalItem.getName()
-                + ", is in stock = " + objPhysicalItem.isInStock()
-                + ", Qty in stock: " + objPhysicalItem.getQuantityInStock();
-        System.out.println(strMessage);
+        StockItem objTestItem1 = new PhysicalStockItem("Starcraft Manual");
+        StockItem objTestItem2 = new PhysicalStockItem("Halo 3", 100);
+        StockItem objTestItem3 = new ServiceStockItem("Delivery");
         
-        //Test the behaviour of the Service Stock Item
-        strMessage = objVirtualItem.getName()
-                + ", is in stock = " + objVirtualItem.isInStock()
-                + ", Qty in stock: " + objVirtualItem.getQuantityInStock();
-        System.out.println(strMessage);
+        //Lets ask each of the three items to print their type in the console
+        //item 1
+        if(objTestItem1.getItemType() == StockType.PHYSICALITEM)
+        {
+            System.out.println("Item 1 is  a PHYSICAL stock item");
+        }
+        else
+        {
+            System.out.println("Item 1 is a SERVICE stock item");
+        }
+        //item 2
+        if(objTestItem2.getItemType() == StockType.PHYSICALITEM)
+        {
+            System.out.println("Item 2 is  a PHYSICAL stock item");
+        }
+        else
+        {
+            System.out.println("Item 2 is a SERVICE stock item");
+        }
+        //item 3
+        if(objTestItem3.getItemType() == StockType.PHYSICALITEM)
+        {
+            System.out.println("Item 3 is  a PHYSICAL stock item");
+        }
+        else
+        {
+            System.out.println("Item 3 is a SERVICE stock item");
+        }
     }
     
 }

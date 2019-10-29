@@ -9,7 +9,7 @@ package stocktracker.stockdatamodel;
  *
  * @author bapperley
  */
-public class StockItem 
+public abstract class StockItem 
 {
     
     protected String name = "UNKNOWN";
@@ -94,6 +94,8 @@ public class StockItem
         }
         return inStock;
     }
+    
+    public abstract StockType getItemType();
     
     
 }
