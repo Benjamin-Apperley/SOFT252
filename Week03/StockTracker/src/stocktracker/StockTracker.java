@@ -48,6 +48,24 @@ public class StockTracker {
         {
             System.out.println("Item 3 is a SERVICE stock item");
         }
+        
+        
+        StockItem objTestItem4 = new PhysicalStockItem("Halo Reach");
+        StockItem objTestItem5 = new ServiceStockItem("Delivery");
+        
+        AnObserver observer = new AnObserver();
+        
+        objTestItem4.registerObserver(observer);
+        objTestItem5.registerObserver(observer);
+        
+        System.out.println("Changing quantity of physical stock item");
+        
+        objTestItem4.setQuantityInStock(10);
+        
+        System.out.println("Changing quantity of service stock item");
+        
+        objTestItem5.setQuantityInStock(5);
+        
     }
     
 }

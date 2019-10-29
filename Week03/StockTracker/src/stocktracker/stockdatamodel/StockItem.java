@@ -4,18 +4,22 @@
  * and open the template in the editor.
  */
 package stocktracker.stockdatamodel;
+import java.util.ArrayList;
+import utilities.ISubject;
+import utilities.IObserver;
 
 /**
  *
  * @author bapperley
  */
-public abstract class StockItem 
+public abstract class StockItem implements ISubject
 {
     
     protected String name = "UNKNOWN";
     protected Integer quantityInStock = 0;
     protected Double sellingPrice = 1000000.00;
     protected Double costPrice = 1000000.00;
+    private ArrayList<IObserver> observers = null;
     
     public StockItem()
     {
@@ -43,6 +47,7 @@ public abstract class StockItem
         if(name != null && !name.isEmpty())
         {
             this.name = name;
+            notifyObservers();
         }
     }
 
@@ -56,6 +61,7 @@ public abstract class StockItem
         if(quantityInStock != null && quantityInStock >= 0)
         {
            this.quantityInStock = quantityInStock; 
+           notifyObservers();
         }
     }
 
@@ -69,6 +75,7 @@ public abstract class StockItem
         if(sellingPrice != null && sellingPrice >= this.costPrice && sellingPrice >= 0)
         {
            this.sellingPrice = sellingPrice; 
+           notifyObservers();
         }  
     }
 
@@ -82,6 +89,7 @@ public abstract class StockItem
         if(costPrice != null && costPrice >= 0 )
         {
             this.costPrice = costPrice;
+            notifyObservers();
         }
     }
     
@@ -97,5 +105,51 @@ public abstract class StockItem
     
     public abstract StockType getItemType();
     
+    @Override
+    public Boolean registerObserver(IObserver o)
+    {
+        Boolean blnAdded = false;       //Assume this method will fail
+        //Validate that observer exists
+        if(o != null)
+        {
+            //if observer list not initialised creat it
+            if(this.observers == null)
+            {
+                this.observers = new ArrayList<>();
+            }
+            //Add the observer to the list of registered observers
+            blnAdded = this.observers.add(o);
+        }
+        //return the result
+        return blnAdded;
+    }
+    
+    @Override
+    public Boolean removeObserver(IObserver o)
+    {
+        Boolean blnRemoved = false;
+        if(o != null)
+        {
+            if(this.observers != null)
+            {
+                 blnRemoved = this.observers.remove(o);
+            }
+        }
+        return blnRemoved;
+    }
+    
+    @Override
+    public void notifyObservers()
+    {
+        //Ensure we have a valid list of observers
+        if(this.observers != null && this.observers.size() > 0)
+        {
+            //Start foreach loop
+            for(IObserver currentObserver : this.observers)
+            {
+                currentObserver.update();
+            }
+        }
+    }
     
 }
