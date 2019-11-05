@@ -22,4 +22,6 @@ public class Coffee extends CupDrink
     {
         System.out.println("Brewing coffee in boiled water");
     }
+    
+    
 }

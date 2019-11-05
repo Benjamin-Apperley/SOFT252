@@ -9,9 +9,10 @@ package pubsimulation;
  *
  * @author bapperley
  */
-public abstract class CupDrink 
+public abstract class CupDrink implements Idrink
 {
-    public final void makeDrink()
+    @Override
+    public final void serveDrink()
     {
         boilWater();
         brew();

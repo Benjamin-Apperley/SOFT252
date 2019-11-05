@@ -22,4 +22,6 @@ public class LongDrink extends AcoholicDrink
     {
         System.out.println("Adding spirit to glass");
     }
+    
+    
 }

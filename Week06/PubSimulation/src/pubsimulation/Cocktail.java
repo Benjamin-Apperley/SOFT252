@@ -22,4 +22,6 @@ public class Cocktail extends AcoholicDrink
     {
         System.out.println("Adding two spirits to glass");
     }
+    
+    
 }

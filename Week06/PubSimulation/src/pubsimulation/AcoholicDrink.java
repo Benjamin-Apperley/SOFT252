@@ -9,9 +9,9 @@ package pubsimulation;
  *
  * @author bapperley
  */
-public abstract class AcoholicDrink 
+public abstract class AcoholicDrink implements Idrink
 {
-    public final void makeDrink()
+    public final void serveDrink()
     {
         addIce();
         addSpirit();

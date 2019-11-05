@@ -9,9 +9,10 @@ package pubsimulation;
  *
  * @author bapperley
  */
-public abstract class GlassDrink 
+public abstract class GlassDrink implements Idrink
 {
-    public final void makeDrink()
+    @Override
+    public final void serveDrink()
     {
         prepareGlass();
         pourDrink();
