@@ -11,5 +11,15 @@ package pubsimulation;
  */
 public class Cocktail extends AcoholicDrink
 {
+    @Override
+    protected void addGarnish()
+    {
+        System.out.println("Adding fancy garnish");
+    }
     
+    @Override
+    protected void addSpirit()
+    {
+        System.out.println("Adding two spirits to glass");
+    }
 }

@@ -9,7 +9,27 @@ package pubsimulation;
  *
  * @author bapperley
  */
-public class AcoholicDrink 
+public abstract class AcoholicDrink 
 {
+    public final void makeDrink()
+    {
+        addIce();
+        addSpirit();
+        addMixer();
+        addGarnish();
+    }
     
+    protected void addIce()
+    {
+        System.out.println("Adding ice to glass");
+    }
+    
+    protected void addMixer()
+    {
+        System.out.println("Adding mixer to glass");
+    }
+    
+    protected abstract void addSpirit();
+    
+    protected abstract void addGarnish();
 }

@@ -11,5 +11,15 @@ package pubsimulation;
  */
 public class Coffee extends CupDrink
 {
+    @Override
+    protected void addItem()
+    {
+        System.out.println("Adding milk");
+    }
     
+    @Override
+    protected void brew()
+    {
+        System.out.println("Brewing coffee in boiled water");
+    }
 }

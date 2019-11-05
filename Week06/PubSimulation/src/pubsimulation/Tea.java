@@ -11,5 +11,15 @@ package pubsimulation;
  */
 public class Tea extends CupDrink
 {
+    @Override
+    protected void addItem()
+    {
+        System.out.println("Adding lemon");
+    }
     
+    @Override
+    protected void brew()
+    {
+        System.out.println("Steeping tea in water");
+    }
 }
