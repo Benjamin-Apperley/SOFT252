@@ -12,10 +12,21 @@ package bicyclerent;
 public abstract class Bike 
 {
     protected String bikeType;
+    protected Boolean available;
     
     public String getType()
     {
         return bikeType;
+    }
+    
+    public boolean getAvailable()
+    {
+        return available;
+    }
+    
+    public void setAvailable(boolean available)
+    {
+        this.available = available;
     }
     
     public abstract double cost();

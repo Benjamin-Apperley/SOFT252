@@ -9,14 +9,21 @@ package bicyclerent;
  *
  * @author bapperley
  */
-public class BicycleRent {
+public class BicycleRent 
+{
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) 
     {
+        Bike bike1 = new MountainBike();
+        Employee emp1 = new Employee(1); 
         
+        emp1.Rent(bike1);
+        emp1.Extra(new Helmet(bike1));
+        
+        System.out.println(emp1.getType() + ": £" + emp1.getCost() + "p");
     }
     
 }
