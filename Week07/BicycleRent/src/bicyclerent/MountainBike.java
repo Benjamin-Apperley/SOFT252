@@ -14,6 +14,7 @@ public class MountainBike extends Bike
     public MountainBike()
     {
         this.bikeType = "Mountain";
+        this.available = true; 
     }
     
     @Override

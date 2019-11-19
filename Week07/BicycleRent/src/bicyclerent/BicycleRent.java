@@ -20,6 +20,8 @@ public class BicycleRent
         Bike bike1 = new MountainBike();
         Employee emp1 = new Employee(1); 
         
+        bike1.setAvailable(false);
+        
         emp1.Rent(bike1);
         emp1.Extra(new Helmet(bike1));
         

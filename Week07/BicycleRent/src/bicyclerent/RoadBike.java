@@ -14,6 +14,7 @@ public class RoadBike extends Bike
     public RoadBike()
     {
         this.bikeType = "Road";
+        this.available = true;
     }
     
     @Override

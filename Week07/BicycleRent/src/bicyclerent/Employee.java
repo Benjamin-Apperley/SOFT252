@@ -12,7 +12,7 @@ package bicyclerent;
 public class Employee 
 {
     private int id;
-    Bike bike;
+    Bike rentedbike;
     String type;
     double cost;
     
@@ -33,7 +33,14 @@ public class Employee
     
     public void Rent(Bike bike)
     {
-        this.bike = bike;
+        if (bike.getAvailable() == true)
+        {
+            this.rentedbike = bike;
+        }
+        else
+        {
+            System.out.println("Unfortunately this bike is unavailable at the current moment");
+        }
     }
     
     public void Extra(BikeDecorator extra)

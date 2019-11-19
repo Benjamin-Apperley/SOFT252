@@ -14,6 +14,7 @@ public class TouringBike extends Bike
     public TouringBike()
     {
         this.bikeType = "Touring";
+        this.available = true;
     }
     
     @Override

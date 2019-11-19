@@ -14,6 +14,7 @@ public class FoldingBike extends Bike
     public FoldingBike()
     {
         this.bikeType = "Folding";
+        this.available =true;
     }
     
     @Override
